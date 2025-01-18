@@ -15,8 +15,8 @@ const Div = styled.div`
     max-width: 100%;
     gap: 20px;
     display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(9,  1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-flow: column;
     overflow-x: auto;
     margin-bottom: 10px;
 `

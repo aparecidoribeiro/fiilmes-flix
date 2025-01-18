@@ -1,7 +1,6 @@
 import { styled } from 'styled-components'
 import { FaSearch } from "react-icons/fa";
 import { useState } from 'react';
-import api from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 
 const Input = styled.input`
@@ -47,31 +46,9 @@ const Search = () => {
 
 
     const clickEnter = (e) => {
-        async function searchFilme() {
-            await api.get('/search/movie', {
-                params: {
-                    api_key: '55a35acc318048587ff967a5a6a30639',
-                    query: search,
-                    language: 'pt-BR',
-                    page: 1
-                }
-            }).then((response) => {
-                if (response.data.results.length <= 0) {
-                    console.log("Nenhum filme encontrado")
-                    setSearch("")
-                }
-
-                console.log(response.data.results)
-                navigation('/teste', { replace: true })
-
-            }).catch(() => {
-                console.log("Nenhum filme encontrado")
-                return
-            })
-        }
-
         if (e.key == "Enter") {
-            searchFilme()
+            navigation(`/filmes/${search}`, { replace: true })
+            setSearch("")
         }
 
     }

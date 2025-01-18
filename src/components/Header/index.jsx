@@ -12,6 +12,7 @@ const Container = styled.header`
     justify-content: space-evenly;
     align-items: center;
     margin-bottom: 30px;
+    z-index: 9;
 
 `
 

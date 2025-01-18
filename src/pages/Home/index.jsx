@@ -1,7 +1,7 @@
 import CardList from "../../components/CardList";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
-import Loading from "../../components/Loading";
+import LoadingLop from "../../components/LoadingLop";
 
 
 const Home = () => {
@@ -49,7 +49,7 @@ const Home = () => {
     }, [])
 
     if (loading) {
-        return <Loading />
+        return <LoadingLop />
     }
 
     return (

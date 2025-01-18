@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-
 const Div = styled.div`
     width: 100%;
     height: calc(100vh - 105px);
@@ -36,7 +35,7 @@ const Cicle = styled.div`
 `
 
 
-const Loading = () => {
+const LoadingLop = () => {
     return (
         <Div>
             <Text>Carregando filmes</Text>
@@ -45,4 +44,4 @@ const Loading = () => {
     )
 }
 
-export default Loading;
+export default LoadingLop;

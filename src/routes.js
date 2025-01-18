@@ -5,6 +5,7 @@ import Header from './components/Header';
 import { theme } from './config/theme';
 import Favoritos from './pages/Favoritos';
 import Error from './pages/Error';
+import ListFilmes from './pages/ListFilmes';
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
@@ -33,6 +34,7 @@ const RoutesApp = () => {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/favoritos' element={<Favoritos />} />
+                    <Route path='/filme/:nome' element={<ListFilmes />} />
 
 
                     <Route path='*' element={<Error />} />

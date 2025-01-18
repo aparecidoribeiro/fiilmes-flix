@@ -16,6 +16,7 @@ const Card = styled.div`
 `
 
 const Image = styled.img`
+    background-color: ${({ theme }) => theme.blue};
     height: 225px;
     width: 150px;
     border-radius: 8px;
