@@ -1,8 +1,11 @@
 
 
 export const theme = {
-    blue: "#3c66f0",
+    blue: "#004AD1",
+    blue_hover: "#003eb1",
     black: "#000000",
+    black_two: "#161616",
     white: "#fff",
-    outline: "#2b5af7"
+    white_twoo: "#fcfcfc",
+    orange: "#ff9100"
 }

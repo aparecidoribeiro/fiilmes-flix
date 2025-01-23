@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { FaSpinner } from "react-icons/fa";
 
 const Div = styled.div`
     width: 100%;
@@ -24,14 +25,10 @@ const rotate = keyframes`
     }
 `
 
-const Cicle = styled.div`
-    width: 34px;
-    height: 34px;
-    background-color: transparent;
-    border-radius: 50%;
-    border: ${({ theme }) => "5px solid" + theme.blue};
-    border-top: 5px solid transparent;
+const Cicle = styled(FaSpinner)`
     animation: ${rotate} 1s linear infinite;
+    color: ${({ theme }) => theme.blue};
+    font-size: 28px;
 `
 
 

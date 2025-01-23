@@ -22,7 +22,7 @@ const Div = styled.div`
 `
 
 const Text = styled.h2`
-    font-size: 30px;
+    font-size: 34px;
 `
 
 const LinkDom = styled(Link)`
@@ -34,10 +34,11 @@ const LinkDom = styled(Link)`
     display: flex;
     align-items: center;
     transition: all .3s;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 500;
 
     &:hover {
-        background-color: ${({ theme }) => theme.outline};
+        background-color: ${({ theme }) => theme.blue_hover};
     }
 `
 
@@ -47,13 +48,17 @@ const DivInfo = styled.div`
     gap: 20px;
 `
 
-const CardList = ({ value, title }) => {
+const CardList = ({ value, title, to }) => {
+
+    function verFilmes(e) {
+        console.log(e)
+    }
 
     return (
         <Section>
             <DivInfo>
                 <Text>{title}</Text>
-                <LinkDom to='#' >Ver mais</LinkDom>
+                <LinkDom to={`/filmes/${to}`} onClick={(e) => verFilmes(e)} >Ver mais</LinkDom>
             </DivInfo>
             <Div>
                 {value.map((filme) => {
@@ -62,6 +67,7 @@ const CardList = ({ value, title }) => {
                             key={filme.id}
                             title={filme.title}
                             image={filme.poster_path}
+                            id={filme.id}
                         />
                     )
                 })}

@@ -2,7 +2,15 @@ import CardList from "../../components/CardList";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import LoadingLop from "../../components/LoadingLop";
+import styled from "styled-components";
 
+
+const Div = styled.div`
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+`
 
 const Home = () => {
 
@@ -53,20 +61,23 @@ const Home = () => {
     }
 
     return (
-        <>
+        <Div>
             <CardList
                 value={cartazes}
                 title={"Filmes em Cartazes"}
+                to={"now_playing"}
             />
             <CardList
                 value={populares}
                 title={"Filmes Populares"}
+                to={"popular"}
             />
             <CardList
                 value={classificados}
                 title={"Top Classficados"}
+                to={"top_rated"}
             />
-        </>
+        </Div>
     )
 }
 export default Home;

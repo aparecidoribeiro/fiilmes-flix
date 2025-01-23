@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
-const Card = styled.div`
+const Card = styled(Link)`
     width: 150px;
     height: auto;
     border-radius: 8px;
@@ -12,6 +13,8 @@ const Card = styled.div`
 
     &:hover>h3  {
         color: ${({ theme }) => theme.blue};
+        transition: color .3s;
+
     }
 `
 
@@ -24,7 +27,7 @@ const Image = styled.img`
 `
 
 const Text = styled.h3`
-    font-size: 16px;
+    font-size: 19px;
     color: ${({ theme }) => theme.black};
     font-weight: 100;
     text-align: center;
@@ -35,12 +38,11 @@ const Text = styled.h3`
     transition: all .2s;
 `
 
-const CardFilme = ({ image, title, data }) => {
+const CardFilme = ({ image, title, id }) => {
     return (
-        <Card>
+        <Card to={`/filme/${id}`}>
             <Image src={`https://image.tmdb.org/t/p/original/${image}`} />
             <Text>{title}</Text>
-            <Text>{data}</Text>
         </Card>
     )
 }

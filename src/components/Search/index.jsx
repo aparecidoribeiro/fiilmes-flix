@@ -10,9 +10,10 @@ const Input = styled.input`
     border-radius: 4px;
     border: none;
     color: #292929;
+    font-size: 20px;
 
     &::placeholder {
-        font-size: 14px;
+        font-size: 20px;
         font-style: italic;
         color: #292929;
     }
@@ -24,7 +25,7 @@ const Input = styled.input`
 
 
 const Div = styled.div`
-    height: 34px;
+    height: 40px;
     width: 100%;
     max-width: 500px;
     display: flex;
@@ -56,7 +57,7 @@ const Search = () => {
     return (
         <Div>
             <Input
-                placeholder='Buscar por um Filme ou Série'
+                placeholder='Buscar por um Filme'
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyDown={clickEnter}
