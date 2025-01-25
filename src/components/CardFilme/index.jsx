@@ -13,8 +13,6 @@ const Card = styled(Link)`
 
     &:hover>h3  {
         color: ${({ theme }) => theme.blue};
-        transition: color .3s;
-
     }
 `
 
@@ -35,7 +33,7 @@ const Text = styled.h3`
     height: auto;
     margin-top: 10px;
     font-weight: bold;
-    transition: all .2s;
+    transition: all .3s;
 `
 
 const CardFilme = ({ image, title, id }) => {

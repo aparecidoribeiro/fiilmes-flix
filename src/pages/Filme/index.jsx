@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import LoadingLop from "../../components/LoadingLop";
 import api from "../../services/api";
+import ButtonFavoritar from "../../components/ButtonFavoritar";
+import ButtonTrailer from "../../components/ButtonTrailer";
 
 const Container = styled.div`
     width: 100%;
@@ -23,6 +25,7 @@ const DivContainer = styled.div`
 
 const Div = styled.div`
     display: flex;
+    align-items: center;
     gap: 10px;
 
     span {
@@ -106,6 +109,10 @@ const Filme = () => {
                         {filme.genres.map((item) => <Text as='span' key={item.name}>{item.name}</Text>)}
                     </Div>
                 </div>
+                <Div>
+                    <ButtonFavoritar filme={filme} />
+                    <ButtonTrailer />
+                </Div>
                 <div>
                     <Text as={"h3"} size="32px">Sinopse</Text>
                     <Text as={"p"} size="24px">{filme.overview}</Text>
