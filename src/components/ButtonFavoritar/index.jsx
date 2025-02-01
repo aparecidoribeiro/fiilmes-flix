@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { MdFavorite } from "react-icons/md";
+import { useContext } from "react";
+import { FilmesContext } from "../../contexts/FilmesContext";
+import { toast } from "react-toastify";
 
 
 const Button = styled.button`
@@ -22,24 +25,22 @@ const Button = styled.button`
 
 const ButtonFavoritar = ({ filme }) => {
 
-    const minhaLisa = localStorage.getItem('@favoritos')
-    let filmesFavoritados = JSON.parse(minhaLisa) || []
+    const { filmes, setFilmes } = useContext(FilmesContext)
 
     function favoritarFilme() {
 
-        if (verificarFavoriacao(filme, filmesFavoritados)) {
-            console.log("Esse filme já esá na sua lista")
+        if (verificarFavoriacao(filme, filmes)) {
+            toast.warn("Esse filme já está na sua lista")
         } else {
-            filmesFavoritados.push(filme)
-            localStorage.setItem('@favoritos', JSON.stringify(filmesFavoritados))
-            console.log("Filme a adicionado a sua lista")
+            setFilmes([...filmes, filme])
+            toast.success("Filme adicionado a lista com sucesso")
         }
 
     }
 
 
-    function verificarFavoriacao(filme, filmesFavoritados) {
-        const hasFilme = filmesFavoritados.some((item) => item.id == filme.id)
+    function verificarFavoriacao(filme, filmes) {
+        const hasFilme = filmes.some((item) => item.id == filme.id)
 
         if (hasFilme) {
             return true

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import CardFavorito from "../../components/CardFavorito";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
+import { FilmesContext } from "../../contexts/FilmesContext";
 
 const Container = styled.div`
-    height: calc(100dvh - 90px);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -34,14 +34,13 @@ const Text = styled.p`
 `
 
 const Favoritos = () => {
-    const [filmes, setFilmes] = useState([])
+
+    const { filmes, setFilmes } = useContext(FilmesContext)
 
     useEffect(() => {
-        const minhaLisa = localStorage.getItem('@favoritos')
-        setFilmes(JSON.parse(minhaLisa) || [])
-    }, [])
+        console.log(filmes)
+    }, [filmes])
 
-    console.log(filmes)
     if (filmes.length == 0) {
         return (
             <Section>
@@ -58,6 +57,7 @@ const Favoritos = () => {
                         title={filme.title}
                         image={filme.backdrop_path}
                         sinopse={filme.overview}
+                        id={filme.id}
                     />
                 )
             })}

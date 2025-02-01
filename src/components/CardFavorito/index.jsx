@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ButtonDelete from "../ButtonDelete";
+import { Link } from "react-router-dom";
 
 
 const Container = styled.div`
@@ -15,6 +16,7 @@ const Container = styled.div`
     cursor: pointer;
     color: ${({ theme }) => theme.white};
     justify-content: center;
+    z-index: 1;
 `
 
 const Image = styled.img`
@@ -34,14 +36,17 @@ const Text = styled.h2`
     font-size: ${(props) => props.size};
     max-width: 350px;
 `
+const Button = styled(Link)`
+    color: ${({ theme }) => theme.white};
+    margin-left: 5px;
+    font-weight: 500;
 
+    &:hover {
+        text-decoration: underline;
+    }
+`
 
 const CardFavorito = ({ title, image, sinopse, id }) => {
-
-
-    function deletarFilme() {
-        alert("Teste")
-    }
 
     return (
         <Container>
@@ -55,11 +60,10 @@ const CardFavorito = ({ title, image, sinopse, id }) => {
                         as={'p'}
                         size='18px'
                     >{sinopse.substring(0, 200)}...
+                        <Button to={`/filme/${id}`}>Ver mais</Button>
                     </Text>
                 </div>
-                <ButtonDelete
-                    buttonClick={deletarFilme}
-                />
+                <ButtonDelete id={id} />
             </Div>
         </Container>
     )

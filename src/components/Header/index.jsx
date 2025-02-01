@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { FaBookmark } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Search from "../Search";
+import { useContext } from "react";
+import { FilmesContext } from "../../contexts/FilmesContext";
 
 
 const Container = styled.header`
@@ -56,6 +58,9 @@ const Div = styled.div`
 
 
 const Header = () => {
+
+    const { filmes } = useContext(FilmesContext)
+
     return (
         <Container>
             <Link to='/'>
@@ -63,7 +68,7 @@ const Header = () => {
             </Link>
             <Search />
             <LinkDom to='/favoritos' gap="5px">
-                <Div>0</Div>
+                <Div>{filmes.length}</Div>
                 <FaBookmark
                     color="#fff"
                     size="22px"

@@ -8,6 +8,7 @@ import Error from './pages/Error';
 import ListFilmes from './pages/ListFilmes';
 import Footer from './components/Footer';
 import Filme from './pages/Filme';
+import { FilmesProvider } from './contexts/FilmesProvider';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -18,12 +19,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     outline: 0;
 }
-
-#root {
+svg {
+    pointer-events: none;
 }
 
 body {
-    height: auto;
     background-color: ${({ theme }) => theme.white_twoo};
 }
 
@@ -38,17 +38,20 @@ const RoutesApp = () => {
         <BrowserRouter>
             <ThemeProvider theme={theme}>
                 <GlobalStyle />
+                <FilmesProvider>
 
-                <Header />
-                <Routes>
-                    <Route path='/' element={<Home />} />
-                    <Route path='/favoritos' element={<Favoritos />} />
-                    <Route path='/filmes/:nome' element={<ListFilmes />} />
-                    <Route path='/filme/:id' element={<Filme />} />
+                    <Header />
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route path='/favoritos' element={<Favoritos />} />
+                        <Route path='/filmes/:nome' element={<ListFilmes />} />
+                        <Route path='/filme/:id' element={<Filme />} />
 
-                    <Route path='*' element={<Error />} />
-                </Routes>
-                <Footer />
+                        <Route path='*' element={<Error />} />
+                    </Routes>
+                    <Footer />
+                </FilmesProvider>
+
             </ThemeProvider>
         </BrowserRouter>
     )
