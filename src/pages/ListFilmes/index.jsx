@@ -15,7 +15,7 @@ const Section = styled.section`
     bottom: 100px; 
     /* align-items: ${(props) => props.$grid ? "" : "center"};  */
     margin-top: ${(props) => props.$grid ? "" : "200px"}; 
-    height: calc(100dvh - 90px);
+    min-height: calc(100dvh - 90px);
 
     //Grid
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -47,6 +47,7 @@ const ListFilmes = () => {
             }
         })
             .then((response) => {
+                console.log(response.data.results)
                 if (response.data.results.length > 0) {
                     setFilmes(response.data.results)
                     setLoading(false)
@@ -107,6 +108,7 @@ const ListFilmes = () => {
                         key={filme.id}
                         title={filme.title}
                         image={filme.poster_path}
+                        id={filme.id}
                     />
                 )
             })}

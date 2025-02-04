@@ -21,6 +21,7 @@ const Home = () => {
     const [populares, setPoplares] = useState([])
     const [classificados, setClassificados] = useState([])
 
+
     useEffect(() => {
         async function loadFilmes() {
             const filmesCartazes = await api.get('movie/now_playing', {
@@ -61,7 +62,7 @@ const Home = () => {
     }
 
     return (
-        <Div>
+        < Div >
             <CardList
                 value={cartazes}
                 title={"Filmes em Cartazes"}
@@ -77,7 +78,7 @@ const Home = () => {
                 title={"Top Classficados"}
                 to={"top_rated"}
             />
-        </Div>
+        </Div >
     )
 }
 export default Home;

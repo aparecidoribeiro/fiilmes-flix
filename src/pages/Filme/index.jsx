@@ -5,6 +5,7 @@ import LoadingLop from "../../components/LoadingLop";
 import api from "../../services/api";
 import ButtonFavoritar from "../../components/ButtonFavoritar";
 import ButtonTrailer from "../../components/ButtonTrailer";
+import { toast } from "react-toastify";
 
 const Container = styled.div`
     width: 100%;
@@ -74,10 +75,12 @@ const Filme = () => {
                 page: 1
             }
         }).then((response) => {
+            console.log(response.data)
             setFilme(response.data)
             setLoading(false)
-        }).catch(() => {
-            console.log('Filme não encontrado')
+        }).catch((e) => {
+            toast.warn("Erro ao procurar filme")
+            console.log(e)
             navigation('/', { replace: true })
             return
         })
@@ -99,7 +102,7 @@ const Filme = () => {
     return (
 
         <Container>
-            <Img src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt="" />
+            <Img src={filme.poster_path ? `https://image.tmdb.org/t/p/original/${filme.poster_path}` : `https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt="" />
             <DivContainer $flex='3'>
                 <div>
                     <Text size="50px">{filme.title}</Text>
@@ -114,7 +117,7 @@ const Filme = () => {
                     <ButtonTrailer />
                 </Div>
                 <div>
-                    <Text as={"h3"} size="32px">Sinopse</Text>
+                    <Text as={"h3"} size="32px">{filme.overview ? "Sinopse" : ""}</Text>
                     <Text as={"p"} size="24px">{filme.overview}</Text>
                 </div>
                 <Nota >{(filme.vote_average).toFixed(1)}/10</Nota>

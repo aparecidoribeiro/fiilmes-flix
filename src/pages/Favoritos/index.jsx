@@ -9,6 +9,8 @@ const Container = styled.div`
     flex-direction: column;
     padding: 30px 20px;
     gap: 25px;
+    min-height: calc(100vh - 90px);
+    
 `
 
 const Section = styled.section`
@@ -20,8 +22,8 @@ const Section = styled.section`
     justify-content: center;
     bottom: 100px; 
     /* align-items: ${(props) => props.$grid ? "" : "center"};  */
-    margin-top: ${(props) => props.$grid ? "" : "200px"}; 
     height: calc(100dvh - 90px);
+    align-items: center;
 
     //Grid
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -31,6 +33,7 @@ const Section = styled.section`
 
 const Text = styled.p`
     font-size: 20px;
+    margin-bottom: 200px;
 `
 
 const Favoritos = () => {

@@ -8,6 +8,8 @@ const Container = styled.footer`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    bottom: 0;
 `
 
 const Span = styled.span`
