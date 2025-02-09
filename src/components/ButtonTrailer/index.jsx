@@ -14,9 +14,13 @@ const Button = styled(Link)`
     margin-left: 10px;
 `
 
-const ButtonTrailer = () => {
+const ButtonTrailer = ({ filme }) => {
     return (
-        <Button>
+        <Button
+            target="blank"
+            rel="external"
+            to={`https://youtube.com/results?search_query=${filme} Trailer`}
+        >
             <IoIosPlay
                 size='28px'
             />

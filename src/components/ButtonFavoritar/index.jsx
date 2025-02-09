@@ -30,10 +30,10 @@ const ButtonFavoritar = ({ filme }) => {
     function favoritarFilme() {
 
         if (verificarFavoriacao(filme, filmes)) {
-            toast.warn("Esse filme já está na sua lista")
+            toast.warn("Esse filme já foi favoritado")
         } else {
             setFilmes([...filmes, filme])
-            toast.success("Filme adicionado a lista com sucesso")
+            toast.success("Filme adicionado ao favoritos")
         }
 
     }

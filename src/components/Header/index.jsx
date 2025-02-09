@@ -16,6 +16,11 @@ const Container = styled.header`
     z-index: 9;
     box-shadow: 0 5px 5px rgba(0, 0, 0, .3); 
 
+    @media (max-width: 800px) {
+        height: 70px;
+        margin-bottom: 30px;
+    }
+
 `
 
 const Logo = styled.h1`

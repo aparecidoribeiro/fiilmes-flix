@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import LoadingLop from "../../components/LoadingLop";
 import styled from "styled-components";
+import Carrossel from "../../components/Carrossel";
 
 
 const Div = styled.div`
@@ -10,6 +11,11 @@ const Div = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+`
+
+const Section = styled.section`
+    padding: 30px 4.5vw 0;
+
 `
 
 const Home = () => {
@@ -20,6 +26,9 @@ const Home = () => {
     const [cartazes, setCartazes] = useState([])
     const [populares, setPoplares] = useState([])
     const [classificados, setClassificados] = useState([])
+
+    //Cartazes de filmes
+    const [banner, setBanner] = useState([])
 
 
     useEffect(() => {
@@ -45,6 +54,7 @@ const Home = () => {
                     page: 1
                 }
             })
+            setBanner(filmesCartazes.data.results.slice(0, 3))
             setCartazes(filmesCartazes.data.results.slice(0, 9))
             setPoplares(filmesPopulares.data.results.slice(0, 9))
             setClassificados(filmesClassificados.data.results.slice(0, 9))
@@ -62,23 +72,26 @@ const Home = () => {
     }
 
     return (
-        < Div >
-            <CardList
-                value={cartazes}
-                title={"Filmes em Cartazes"}
-                to={"now_playing"}
-            />
-            <CardList
-                value={populares}
-                title={"Filmes Populares"}
-                to={"popular"}
-            />
-            <CardList
-                value={classificados}
-                title={"Top Classficados"}
-                to={"top_rated"}
-            />
-        </Div >
+        <Section>
+            <Carrossel banner={banner} />
+            < Div >
+                <CardList
+                    value={cartazes}
+                    title={"Filmes em Cartazes"}
+                    to={"now_playing"}
+                />
+                <CardList
+                    value={populares}
+                    title={"Filmes Populares"}
+                    to={"popular"}
+                />
+                <CardList
+                    value={classificados}
+                    title={"Top Classficados"}
+                    to={"top_rated"}
+                />
+            </Div >
+        </Section>
     )
 }
 export default Home;

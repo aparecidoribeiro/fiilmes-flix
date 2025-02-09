@@ -14,33 +14,64 @@ const Card = styled(Link)`
     &:hover>h3  {
         color: ${({ theme }) => theme.blue};
     }
+
+
+    @media (max-width: 750px) {
+        width: 125px;
+        height: auto;
+    }
+
 `
 
 const Image = styled.img`
     background-color: ${({ theme }) => theme.blue};
     height: 225px;
-    width: 150px;
+    width: 100%;
     border-radius: 8px;
     object-fit: cover;
+    margin-bottom: 7px;
+
+
+    @media (max-width: 750px) {
+        height: 190px;
+    }
 `
 
 const Text = styled.h3`
     font-size: 19px;
     color: ${({ theme }) => theme.black};
-    font-weight: 100;
-    text-align: center;
+    text-align: start;
     width: 100%;
     height: auto;
-    margin-top: 10px;
-    font-weight: bold;
+    padding: 0 10px;
+    font-weight: ${(props) => props.weight || "bold"};
     transition: all .3s;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    @media (max-width: 750px) {
+        font-size: 16px;
+        padding: 0 5px;
+
+    }
 `
 
-const CardFilme = ({ image, title, id }) => {
+const CardFilme = ({ image, title, id, date }) => {
+
+    const dataFilme = new Date(date)
+    const formatoData = dataFilme.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' })
+
     return (
         <Card to={`/filme/${id}`}>
             <Image src={`https://image.tmdb.org/t/p/original/${image}`} />
-            <Text>{title}</Text>
+            <Text>{title} </Text>
+            <Text
+                as="p"
+                weight="400"
+            >{formatoData}
+            </Text>
         </Card>
     )
 }

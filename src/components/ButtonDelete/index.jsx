@@ -34,7 +34,7 @@ const ButtonDelete = ({ id: filmeClicado }) => {
         })
 
         setFilmes(hasFilmes)
-        toast.success("Filme deletado com sucesso")
+        toast.success("Filme deletado")
     }
 
 

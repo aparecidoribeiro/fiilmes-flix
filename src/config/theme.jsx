@@ -7,5 +7,6 @@ export const theme = {
     black_two: "#161616",
     white: "#fff",
     white_twoo: "#fcfcfc",
-    orange: "#ff9100"
+    orange: "#ff9100",
+    gray: "#afafaf",
 }

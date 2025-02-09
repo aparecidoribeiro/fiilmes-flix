@@ -40,7 +40,12 @@ const Footer = () => {
         <Container>
             <Span>
                 Desenvolvido por
-                <Text>Aparecido Ribeiro</Text>
+                <Text
+                    target="blank"
+                    rel="external"
+                    to={'https://www.linkedin.com/in/aparecido-ribeiro/'}
+                >Aparecido Ribeiro
+                </Text>
             </Span>
         </Container >
     )

@@ -55,7 +55,7 @@ const CardFavorito = ({ title, image, sinopse, id }) => {
             />
             <Div>
                 <div>
-                    <Text size='35px'>{title}</Text>
+                    <Text size='35px'>{title.substring(0, 25)}...</Text>
                     <Text
                         as={'p'}
                         size='18px'
