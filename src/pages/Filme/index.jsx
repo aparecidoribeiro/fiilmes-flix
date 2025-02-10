@@ -14,21 +14,15 @@ const Container = styled.div`
     justify-content: center;
     padding: 60px 40px;
 
-    @media (max-width: 800px) {
-        gap: 20px;
-    }
-
 `
 
 const DivContainer = styled.div`
-    max-width: 800px;
-    gap: 50px;
+    max-width: 850px;
+    gap: 20px;
 
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: repeat(3, 1fr);
-
-
+    grid-template-rows: 150px 80px 1fr;
 
 
     @media (max-width: 1024px) {
@@ -64,7 +58,15 @@ const DivContainer = styled.div`
     @media (max-width: 550px) {
         display: grid;
         grid-template-columns: 2fr 1fr;
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: 2fr .5fr 2fr;
+        gap: 15px;
+    }
+
+    @media (max-width: 350px) {
+        h2 {
+            font-size: 28px;
+        }
+
     }
 
 `
@@ -86,10 +88,16 @@ const Div = styled.div`
     span {
         font-size: 22px;
         font-weight: 500;
+        line-height: 15px;
 
         @media (max-width: 800px) {
             font-size: 18px;
         }
+    }
+
+    @media (max-width: 550px) {
+        grid-column: 1/3;
+        grid-row: 2;
     }
 
 
@@ -102,6 +110,7 @@ const Img = styled.img`
     border-radius: 8px;
     grid-column: 1/2;
     grid-row: 1/3;
+    margin-right: 20px;
 
     @media (max-width: 1024px) {
         width: 250px;
@@ -152,15 +161,16 @@ const Nota = styled.span`
         order: 2;
     }
 
+
 `
 
 const DivSinopse = styled.div`
     grid-column: 2/3;
-    grid-row: 2;
+    grid-row: 3;
 
     @media (max-width: 550px) {
         grid-column: 1/3;
-        grid-row: 2;
+        grid-row: 3;
     }
 `
 
@@ -172,6 +182,19 @@ const DivInfor = styled.div`
     @media (max-width: 550px) {
         grid-column: 1/2;
         grid-row: 1;
+    }
+`
+
+const DivAction = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    grid-column: 2/3;
+        grid-row: 2;
+
+    @media (max-width: 550px) {
+        grid-column: 1/3;
+        grid-row: 2;
     }
 `
 
@@ -221,24 +244,23 @@ const Filme = () => {
             <DivContainer $flex='3'>
                 <Img src={filme.poster_path ? `https://image.tmdb.org/t/p/original/${filme.poster_path}` : `https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt="" />
                 <DivInfor>
-                    <div>
-                        <Text size="50px">{filme.title}</Text>
-                        <Div>
-                            <Text as='span'>{formatoData}</Text>
-                            <Text as='span'>{filme.runtime}m</Text>
-                            {filme.genres.map((item) => <Text as='span' key={item.name}>{item.name}</Text>)}
-                        </Div>
-                    </div>
+                    <Text size="50px">{filme.title}</Text>
                     <Div>
-                        <ButtonFavoritar filme={filme} />
-                        <ButtonTrailer filme={filme.title} />
+                        <Text as='span'>{formatoData}</Text>
+                        <Text as='span'>{filme.runtime}m</Text>
+                        {filme.genres.map((item) => <Text as='span' key={item.name}>{item.name}</Text>)}
                     </Div>
                     <Nota >{(filme.vote_average).toFixed(1)}/10</Nota>
                 </DivInfor>
+                <DivAction>
+                    <ButtonFavoritar filme={filme} />
+                    <ButtonTrailer filme={filme.title} />
+                </DivAction>
                 <DivSinopse>
                     <Text as={"h3"} size="32px">{filme.overview ? "Sinopse" : ""}</Text>
                     <Text as={"p"} size="24px">{filme.overview}</Text>
                 </DivSinopse>
+
             </DivContainer>
         </Container>
     )

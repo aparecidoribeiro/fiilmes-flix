@@ -6,7 +6,7 @@ import LoadingLop from "../../components/LoadingLop"
 import CardFilme from '../../components/CardFilme'
 
 const Section = styled.section`
-    padding: 30px 20px 20px;
+    padding: 30px 4.5vw 0;
     display: ${(props) => props.$grid ? "grid" : "flex"};
     
     //Flex
@@ -18,9 +18,14 @@ const Section = styled.section`
     min-height: calc(100dvh - 90px);
 
     //Grid
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
     justify-items: center;
+
+    @media (max-width: 700px) {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 20px;
+    }
 `
 
 const Text = styled.p`

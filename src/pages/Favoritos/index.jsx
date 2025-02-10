@@ -7,7 +7,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 30px 20px;
+    padding: 30px 4.5vw 0;
     gap: 25px;
     min-height: calc(100vh - 90px);
     
@@ -58,7 +58,7 @@ const Favoritos = () => {
                     <CardFavorito
                         key={filme.id}
                         title={filme.title}
-                        image={filme.backdrop_path}
+                        image={filme.poster_path}
                         sinopse={filme.overview}
                         id={filme.id}
                     />

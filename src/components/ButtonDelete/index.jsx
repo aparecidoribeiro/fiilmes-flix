@@ -6,9 +6,9 @@ import { toast } from "react-toastify";
 
 const Button = styled.button`
     cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 6px;
     border: none;
     display: flex;
     justify-content: center;
@@ -22,6 +22,7 @@ const Button = styled.button`
         background-color: ${({ theme }) => theme.blue_hover};
         border: 1px solid ${({ theme }) => theme.white};
     }
+
 `
 
 const ButtonDelete = ({ id: filmeClicado }) => {
@@ -42,7 +43,7 @@ const ButtonDelete = ({ id: filmeClicado }) => {
         <>
             <Button onClick={() => deletarFilme()}>
                 <MdDeleteOutline
-                    size='28px'
+                    size='24px'
                     color='#fff'
                 />
             </Button>

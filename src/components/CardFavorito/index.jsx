@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const Container = styled.div`
-    width: 100%;
+    width: auto;
     max-width: 600px;
     height: 180px;
     border-radius: 8px;
@@ -17,6 +17,18 @@ const Container = styled.div`
     color: ${({ theme }) => theme.white};
     justify-content: center;
     z-index: 1;
+
+
+    @media (max-width: 600px) {
+        gap: 10px;
+        padding: 10px 20px;
+
+    }
+
+    @media (max-width: 450px) {
+        height: 120px;
+    }
+
 `
 
 const Image = styled.img`
@@ -25,21 +37,49 @@ const Image = styled.img`
     object-fit: cover;
     border-radius: 6px;
     transition: all .2s;
+
+    @media (max-width: 450px) {
+        width: 70px;
+        height: 100%;
+    }
 `
 
 const Div = styled.div`
     display: flex;
     gap: 10px;
+
+    @media (max-width: 600px) {
+
+        h2 {
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 15px;
+            max-width: 250px;
+        }
+    }
+
+    @media (max-width: 450px) {
+        h2 {
+            font-size: 22px;
+        }
+
+        p {
+            display: none;
+        }
+    }
+
 `
 
 const Text = styled.h2`
     font-size: ${(props) => props.size};
-    max-width: 350px;
+    max-width: 320px;
 `
 const Button = styled(Link)`
     color: ${({ theme }) => theme.white};
-    margin-left: 5px;
     font-weight: 500;
+    font-size: 18px;
 
     &:hover {
         text-decoration: underline;
@@ -55,13 +95,13 @@ const CardFavorito = ({ title, image, sinopse, id }) => {
             />
             <Div>
                 <div>
-                    <Text size='35px'>{title.substring(0, 25)}...</Text>
+                    <Text size='35px'>{title}</Text>
                     <Text
                         as={'p'}
                         size='18px'
-                    >{sinopse.substring(0, 200)}...
-                        <Button to={`/filme/${id}`}>Ver mais</Button>
+                    >{sinopse.substring(0, 160)}...
                     </Text>
+                    <Button to={`/filme/${id}`}>Ver mais</Button>
                 </div>
                 <ButtonDelete id={id} />
             </Div>
