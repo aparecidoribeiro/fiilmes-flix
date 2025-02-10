@@ -6,7 +6,7 @@ import LoadingLop from "../../components/LoadingLop"
 import CardFilme from '../../components/CardFilme'
 
 const Section = styled.section`
-    padding: 30px 4.5vw 0;
+    padding: 30px 4.5vw 20px;
     display: ${(props) => props.$grid ? "grid" : "flex"};
     
     //Flex
