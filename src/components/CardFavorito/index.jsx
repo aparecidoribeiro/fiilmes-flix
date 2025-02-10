@@ -26,7 +26,13 @@ const Container = styled.div`
     }
 
     @media (max-width: 450px) {
-        height: 120px;
+        justify-content: space-around;
+        height: 130px;
+        width: 85%;
+    }
+
+    @media (max-width: 380px) {
+        width: 100%;
     }
 
 `
@@ -39,7 +45,7 @@ const Image = styled.img`
     transition: all .2s;
 
     @media (max-width: 450px) {
-        width: 70px;
+        width: 80px;
         height: 100%;
     }
 `
@@ -61,6 +67,9 @@ const Div = styled.div`
     }
 
     @media (max-width: 450px) {
+
+        gap: 20px;
+
         h2 {
             font-size: 22px;
         }
