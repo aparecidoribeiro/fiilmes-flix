@@ -70,7 +70,7 @@ const CardFilme = ({ image, title, id, date }) => {
             <Text
                 as="p"
                 weight="400"
-            >{formatoData}
+            >{formatoData ? formatoData : date}
             </Text>
         </Card>
     )

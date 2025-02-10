@@ -114,6 +114,7 @@ const ListFilmes = () => {
                         title={filme.title}
                         image={filme.poster_path}
                         id={filme.id}
+                        date={filme.release_date}
                     />
                 )
             })}
