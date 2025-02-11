@@ -15,7 +15,7 @@ const Section = styled.section`
     bottom: 100px; 
     /* align-items: ${(props) => props.$grid ? "" : "center"};  */
     margin-top: ${(props) => props.$grid ? "" : "200px"}; 
-    min-height: calc(100dvh - 90px);
+    min-height: calc(100vh - 90px);
 
     //Grid
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));

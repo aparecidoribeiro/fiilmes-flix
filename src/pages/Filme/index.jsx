@@ -9,10 +9,10 @@ import { toast } from "react-toastify";
 
 const Container = styled.div`
     width: 100%;
-    height: calc(100dvh - 105px);
+    min-height: calc(100vh - 90px);
     display: flex;
     justify-content: center;
-    padding: 60px 40px;
+    padding: 60px 4.5vw;
 
 `
 
@@ -22,7 +22,7 @@ const DivContainer = styled.div`
 
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 150px 80px 1fr;
+    grid-template-rows: 140px 60px 1fr;
 
 
     @media (max-width: 1024px) {
@@ -42,6 +42,7 @@ const DivContainer = styled.div`
 
     @media (max-width: 800px) {
 
+
         h2 {
             font-size: 32px;
         }
@@ -58,7 +59,7 @@ const DivContainer = styled.div`
     @media (max-width: 550px) {
         display: grid;
         grid-template-columns: 2fr 1fr;
-        grid-template-rows: 2fr .5fr 2fr;
+        grid-template-rows: 230px .5fr 2fr;
         gap: 15px;
     }
 

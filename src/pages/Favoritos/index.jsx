@@ -9,7 +9,7 @@ const Container = styled.div`
     flex-direction: column;
     padding: 30px 4.5vw 0;
     gap: 25px;
-    min-height: calc(100dvh - 90px);
+    min-height: calc(100vh - 90px);
     
 `
 
@@ -22,7 +22,7 @@ const Section = styled.section`
     justify-content: center;
     bottom: 100px; 
     /* align-items: ${(props) => props.$grid ? "" : "center"};  */
-    height: calc(100dvh - 90px);
+    height: calc(100vh - 90px);
     align-items: center;
 
     //Grid

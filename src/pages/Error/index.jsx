@@ -4,7 +4,7 @@ import { LinkDom as Link } from "../../components/Header";
 
 const Container = styled.div`
     width: 100%;
-    height: calc(100dvh - 75px);
+    height: calc(100vh - 75px);
     display: flex;
     justify-content: center;
     align-items: center;
