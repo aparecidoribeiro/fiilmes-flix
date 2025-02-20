@@ -18,17 +18,23 @@ const Container = styled.div`
 
 const DivContainer = styled.div`
     max-width: 850px;
-    gap: 20px;
+    gap: 10px;
 
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 140px 60px 1fr;
+    grid-template-rows: 130px 50px 1fr;
+
+    h2 {
+        line-height: 40px;
+    }
 
 
     @media (max-width: 1024px) {
 
         h2 {
             font-size: 38px;
+            line-height: 30px;
+
         }
 
         h3 {
@@ -44,7 +50,7 @@ const DivContainer = styled.div`
 
 
         h2 {
-            font-size: 32px;
+            font-size: 36px;
         }
 
         h3 {
@@ -137,15 +143,15 @@ const Text = styled.h2`
 `
 
 const Nota = styled.span`
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 500;
     background-color: ${({ theme }) => theme.orange};
     color: ${({ theme }) => theme.white};
-    width: 90px;
+    width: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px 10px;
+    padding: 5px 6px;
     border-radius: 8px;
 
     @media (max-width: 1024px)  {
@@ -178,7 +184,7 @@ const DivSinopse = styled.div`
 const DivInfor = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: space-between;
 
     @media (max-width: 550px) {
         grid-column: 1/2;

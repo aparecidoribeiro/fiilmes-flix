@@ -7,7 +7,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 30px 4.5vw 0;
+    padding: 30px 4.5vw;
     gap: 25px;
     min-height: calc(100vh - 90px);
     

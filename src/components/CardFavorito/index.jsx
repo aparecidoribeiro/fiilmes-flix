@@ -53,11 +53,16 @@ const Image = styled.img`
 const Div = styled.div`
     display: flex;
     gap: 10px;
+    
+    h2 {
+        line-height: 35px;
+    }
 
     @media (max-width: 600px) {
 
         h2 {
             font-size: 28px;
+            max-width: 250px;
         }
 
         p {
