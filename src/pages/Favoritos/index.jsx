@@ -21,7 +21,6 @@ const Section = styled.section`
     width: 100%;
     justify-content: center;
     bottom: 100px; 
-    /* align-items: ${(props) => props.$grid ? "" : "center"};  */
     height: calc(100vh - 90px);
     align-items: center;
 
@@ -47,7 +46,7 @@ const Favoritos = () => {
     if (filmes.length == 0) {
         return (
             <Section>
-                <Text>Nenhum filme encontrado :(</Text>
+                <Text>Nenhum filme adicionado aos favoritos :(</Text>
             </Section>
         )
     }
